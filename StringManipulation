@@ -55,7 +55,7 @@ public class Main
         //ouputs the reverse of ALLCAPS
         System.out.println("The reverse in CAPS of " + name + " is: " + (String.valueOf(reverse)));
 
-        //N/A
+        //creates a char array then creates a for loop that capitalizes a letter if its even making every other letter capitalized
         char [] camel = new char[name.length()];
         for (int i = 0; i <= (name.length()-1); i++)
         {
@@ -68,7 +68,7 @@ public class Main
 
         }
         System.out.println("The camel case of " + name + " is: " + (String.valueOf(camel)));
-        //N/A
+        
 
         //strASCII is created and defined as String
         //for loop that starts i at 0 and cycles through and stops before i gets greater than the length of the name
