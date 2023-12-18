@@ -1,0 +1,85 @@
+//Allows for scanners and therefore user input
+import java.util.Scanner;
+public class Main
+{
+    public static void main(String[] args)
+    {
+
+        //defines scan as a scanner, bol as a true boolean, and prompts user for a num
+        Scanner scan = new Scanner(System.in);
+        boolean bol = true;
+        System.out.println("input coded instructions: ");
+        //creates a while loop that scans one integer of an inputted line of integers per iteration
+        //converts integer to character and prints the character; the entire sentence char by char is generated
+        //if a 0 is inputted, the loop is exited
+        while (bol == true)
+        {
+            int nextline = scan.nextInt();
+            System.out.print((char)(nextline));
+            if (nextline == 10)
+            {
+                bol = false;
+            }
+        }
+        //prompts user for name, scans the name inputted and saves the name inputted as String
+        System.out.println("input your name: ");
+        scan.nextLine();
+        String name = scan.nextLine();
+        //an empty character array of the length of the inputted name is created; called reverse
+        char [] reverse = new char[name.length()];
+        //int length is defined as 1 less than length of name to forego any problems from the 0th index
+        int length = name.length() - 1;
+
+        //for loop that starts i at 0 and cycles through and stops before i gets greater than the length of the name
+        //each iteration transfers the "i to last" character of the name to the "i" character of the reverse; by end of loop, reverse is the reverse of name
+        for (int i = 0; i <= length; i++)
+        {
+            reverse[i] = name.charAt(length - i);
+        }
+        //Outputs the reverse of name as a String then creates a new character array called ALLCAPS with length of name
+        System.out.println("The reverse of " + name + " is: " + (String.valueOf(reverse)));
+        char [] ALLCAPS = new char[name.length()];
+
+        //for loop that starts i at 0 and cycles through and stops before i gets greater than the length of the name
+        //each iteration capitalizes the "i" character of the name then transfers it to the "i" character of ALLCAPS
+        for (int i = 0; i <= length; i++)
+        {
+            ALLCAPS[i] = (char)((int)(name.charAt(i))-32);
+        }
+
+        //ALLCAPS is then converted to reverse the same way name was up top
+        for (int i = 0; i <= length; i++)
+        {
+            reverse[i] = ALLCAPS[length - i];
+        }
+        //ouputs the reverse of ALLCAPS
+        System.out.println("The reverse in CAPS of " + name + " is: " + (String.valueOf(reverse)));
+
+        //N/A
+        char [] camel = new char[name.length()];
+        for (int i = 0; i <= (name.length()-1); i++)
+        {
+            if (i%2 == 0 && name.charAt(i) > 96)
+            {
+                camel[i] = (char)((int)(name.charAt(i))-32);
+            }
+            else
+            camel[i] = name.charAt(i);
+
+        }
+        System.out.println("The camel case of " + name + " is: " + (String.valueOf(camel)));
+        //N/A
+
+        //strASCII is created and defined as String
+        //for loop that starts i at 0 and cycles through and stops before i gets greater than the length of the name
+        //each iteration converts the "i" character in name to its ASCII value and concatenates that value with the previous values of strASCII
+        String strASCII = "";
+        for (int i = 0; i <= length; i++)
+        {
+            strASCII = strASCII + " " + (int)name.charAt(i);
+        }
+        //strASCII is outputted
+        System.out.println("The ASCII case of " + name + " is: " + strASCII);
+    }
+
+}
